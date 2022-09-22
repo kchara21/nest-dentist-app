@@ -1,13 +1,23 @@
+import { Appointment } from '../../appointments/entities/appointment.entity';
 import {
   Column,
   CreateDateColumn,
+  Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
+@Entity()
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @OneToMany(() => Appointment, (appointment) => appointment.user, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  appointment: Appointment[];
 
   @Column()
   name: string;
