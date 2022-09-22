@@ -5,24 +5,12 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-export class User {
+export class Category {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: string;
-
-  @Column()
-  phone: string;
-
-  @Column()
-  ci: string;
-
-  @Column()
-  password: string;
-
-  @Column()
-  role: string;
 
   @Column()
   @CreateDateColumn()
